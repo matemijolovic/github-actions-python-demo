@@ -12,10 +12,20 @@ jobs:
         run: |
           pip install poetry
           poetry build
-  Python-Package-Release:
+  Python-Package-Stylecheck:
     runs-on: ubuntu-latest
     container: python:3.12
     needs: Python-Package-Build
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Run linters
+        run: |
+          echo "This step should run linters and typecheckers"
+  Python-Package-Release:
+    runs-on: ubuntu-latest
+    container: python:3.12
+    needs: [Python-Package-Build, Python-Package-Stylecheck]
     steps:
       - name: Upload package as artifact
         uses: actions/upload-artifact@v3
