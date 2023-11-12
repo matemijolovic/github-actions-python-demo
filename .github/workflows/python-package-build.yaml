@@ -1,5 +1,5 @@
 name: Python Package Build
-run-name: Python Package bulid by ${{ github.actor }}
+run-name: Python Package build by ${{ github.actor }}
 on: [push]
 jobs:
   Python-Package-Build:
