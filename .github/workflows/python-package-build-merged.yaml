@@ -1,0 +1,25 @@
+name: Python Package Build
+run-name: Python Package bulid by ${{ github.actor }}
+on: [push]
+jobs:
+  Python-Package-Pipeline:
+    runs-on: ubuntu-latest
+    container: python:3.12
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Build package with Poetry
+        run: |
+          pip install poetry
+          poetry build
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Run linters
+        run: |
+          echo "This step should run linters and typecheckers"
+      - name: Upload package as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-package
+          path: dist/
+      
