@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: python:3.12
-      options: --user 1001
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
