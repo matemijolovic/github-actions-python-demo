@@ -15,6 +15,7 @@ jobs:
   Python-Package-Release:
     runs-on: ubuntu-latest
     container: python:3.12
+    needs: Python-Package-Build
     steps:
       - name: Upload package as artifact
         uses: actions/upload-artifact@v3
