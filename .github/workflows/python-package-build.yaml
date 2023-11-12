@@ -20,11 +20,10 @@ jobs:
     container: python:3.12
     needs: Python-Package-Build
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
       - name: Run linters
         run: |
           echo "This step should run linters and typecheckers"
+          ls
   Python-Package-Release:
     runs-on: ubuntu-latest
     container: python:3.12
