@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+      - name: ownership workaround
+        run: git config --system --add safe.directory '*'
       - name: Build package with Poetry
         run: |
           pip install poetry
